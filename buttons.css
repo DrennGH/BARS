@@ -1,0 +1,149 @@
+.back {
+  z-index: 1;
+  text-decoration: underline;
+  display: inline;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  padding-left: 10px;
+  font-size: 32px;
+}
+
+/* Main Menu Buttons */
+
+.container {
+  position: relative;
+}
+
+.borrow {
+  background-image: url(images/Button/borrow_normal.png);
+  width: 535px;
+  height: 214px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.borrow:hover {
+  background-image: url(images/Button/borrow_glow.png);
+}
+
+.reserve {
+  background-image: url(images/Button/reserve_normal.png);
+  width: 535px;
+  height: 214px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.reserve:hover {
+  background-image: url(images/Button/reserve_glow.png);
+}
+
+.return {
+  background-image: url(images/Button/return_normal.png);
+  width: 535px;
+  height: 214px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.return:hover {
+  background-image: url(images/Button/return_glow.png);
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  margin-top: 35vh;
+}
+
+.button {
+  position: absolute;
+  background-color: #04aa3b;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  bottom: 20px;
+  left: 50%;
+  padding: 12px 28px;
+  font-size: 18px;
+  margin: 4px 2px;
+  border-radius: 10px;
+  transition-duration: 0.4s;
+  transform: translateX(-50%);
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #04aa3b;
+}
+
+.button1:hover {
+  background-color: #04aa3b;
+  color: white;
+}
+
+/*Info*/
+.form input[type="submit"] {
+  background-color: #3d7d31;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+.submit:hover {
+  background-color: #3e8e41;
+}
+/* End Page Buttons */
+
+.end-container {
+  position: relative;
+  top: 200px;
+}
+.submission {
+  width: 585px;
+  height: 235px;
+  background-image: url(images/Button/submission_normal.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.submission:hover {
+  background-image: url(images/Button/submission_glow.png);
+}
+
+.returnmenu {
+  width: 585px;
+  height: 235px;
+  background-image: url(images/Button/returnmenu_normal.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  cursor: pointer;
+}
+
+.returnmenu:hover {
+  background-image: url(images/Button/returnmenu_glow.png);
+}
+
+.end-button-row {
+  display: flex;
+  flex-direction: row;
+}

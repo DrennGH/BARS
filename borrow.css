@@ -1,0 +1,61 @@
+body {
+  overflow-y: scroll;
+}
+h1 {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  z-index: 1;
+  font-size: 100px;
+  font-family: "League Spartan";
+  font-weight: bolder;
+  color: rgb(2, 95, 2);
+  top: 5vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.form {
+  position: absolute; /* add this property */
+  top: 45%; /* add this property */
+  left: 50%; /* add this property */
+  transform: translate(-50%, -50%); /* add this property */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #cccccc3f;
+  padding: 20px;
+  width: 900px;
+  height: 800px;
+  margin-top: 10vh; /* remove the margin property */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form label {
+  font-family: "Work Sans";
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.form input[type="text"],
+.form input[type="number"],
+.form input[type="date"],
+.form input[type="email"] {
+  width: 90%;
+  padding: 10px;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: border-color 0.3s ease;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.form input[type="text"]:focus,
+.form input[type="number"]:focus,
+.form input[type="date"]:focus,
+.form input[type="email"]:focus {
+  border-color: #4caf50;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="buttons.css" />
+    <title>BARS | INFO</title>
+
+    <style>
+      h1 {
+        position: absolute;
+        display: inline-block;
+        text-align: center;
+        z-index: 1;
+        font-size: 100px;
+        font-family: "League Spartan";
+        font-weight: bolder;
+        color: rgb(2, 95, 2);
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+
+      .form {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: #cccccc3f;
+        padding: 20px;
+        width: 900px;
+        height: 800px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form label {
+        font-family: "Work Sans";
+        font-weight: bold;
+        font-size: 62px;
+        margin-bottom: 10px;
+      }
+
+      .form input[type="text"],
+      .form input[type="number"],
+      .form input[type="date"],
+      .form input[type="email"] {
+        width: 70vh;
+        padding: 20px;
+        font-size: 24px;
+        border: 1px solid #ccc;
+        margin-bottom: 40px;
+        transition: border-color 0.3s ease;
+        border-radius: 10px;
+        margin: 0 auto;
+        color: #333;
+      }
+
+      .form input[type="text"]:focus,
+      .form input[type="number"]:focus,
+      .form input[type="date"]:focus {
+        width: 70vh;
+        padding: 20px;
+        font-size: 30px;
+        border: 1px solid #ccc;
+        margin-bottom: 80px;
+        transition: border-color 0.3s ease;
+        border-radius: 10px;
+        margin: 0 auto;
+        color: #333;
+      }
+      .form input[type="email"]:focus {
+        border-color: #4caf50;
+      }
+
+      .submit-btn {
+        background-color: rgb(2, 95, 2);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 30px;
+        cursor: pointer;
+        margin-top: 40px;
+        width: 40%;
+      }
+
+      .submit-btn:hover {
+        background-color: #2f5c25;
+      }
+      .submit-btn-container {
+        margin-top: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="background"></div>
+
+    <h1>PERSONAL INFO</h1>
+
+    <div class="back">
+      <a href="MainMenu.html">&lt; GO BACK</a>
+    </div>
+
+    <div class="form">
+      <form action="items.html" method="post">
+        <script></script>
+        <label for="ID">STUDENT ID</label><br />
+        <input
+          type="number"
+          id="ID"
+          minlength="9"
+          maxlength="9"
+          required
+        /><br />
+
+        <label for="lastname">LAST NAME</label><br />
+        <input
+          type="text"
+          id="lastname"
+          placeholder="Dela Cruz"
+          required
+        /><br />
+
+        <label for="firstname">FIRST NAME</label><br />
+        <input type="text" id="firstname" placeholder="Juan" required /><br />
+
+        <label for="email">DLSU-D EMAIL</label><br />
+        <input type="text" id="email" required /><br />
+
+        <label for="date">DATE</label><br />
+        <input type="date" id="date" required />
+
+        <script>
+          const urlParams = new URLSearchParams(window.location.search);
+          const mode = urlParams.get("mode");
+
+          if (mode === "borrow") {
+            // Apply date object method for borrow mode
+            const currentDate = new Date();
+            const minDate = currentDate.toISOString().split("T")[0];
+            const maxDate = new Date(
+              currentDate.getTime() + 3 * 24 * 60 * 60 * 1000
+            )
+              .toISOString()
+              .split("T")[0];
+
+            document.getElementById("date").min = minDate;
+            document.getElementById("date").max = maxDate;
+          } else if (mode === "reserve") {
+            // Apply date object method for reserve mode
+            const currentDate = new Date();
+            const minDate = currentDate.toISOString().split("T")[0];
+            const maxDate = new Date(
+              currentDate.getTime() + 14 * 24 * 60 * 60 * 1000
+            )
+              .toISOString()
+              .split("T")[0];
+
+            document.getElementById("date").min = minDate;
+            document.getElementById("date").max = maxDate;
+          }
+
+          document.getElementById("ID").addEventListener("input", function () {
+            localStorage.setItem("student-id", this.value);
+          });
+
+          document
+            .getElementById("lastname")
+            .addEventListener("input", function () {
+              localStorage.setItem("last-name", this.value);
+            });
+
+          document
+            .getElementById("firstname")
+            .addEventListener("input", function () {
+              localStorage.setItem("first-name", this.value);
+            });
+
+          document
+            .getElementById("email")
+            .addEventListener("input", function () {
+              localStorage.setItem("email", this.value);
+            });
+
+          document
+            .getElementById("date")
+            .addEventListener("input", function () {
+              localStorage.setItem("date", this.value);
+            });
+        </script>
+
+        <div class="submit-btn-container">
+          <input type="submit" value="SUBMIT" />
+        </div>
+      </form>
+    </div>
+
+    <script src="info.js"></script>
+  </body>
+</html>

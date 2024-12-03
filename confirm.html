@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="buttons.css" />
+    <title>BARS | CONFIRM</title>
+
+    <style>
+      body {
+        overflow-y: scroll;
+      }
+      h1 {
+        position: absolute;
+        display: inline-block;
+        text-align: center;
+        z-index: 1;
+        font-size: 100px;
+        font-family: "League Spartan";
+        font-weight: bolder;
+        color: rgb(2, 95, 2);
+        top: 30px;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+
+      .form {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        background-color: #cccccc3f;
+        padding: 20px;
+        width: 900px;
+        height: 800px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .form label {
+        font-family: "Work Sans";
+        font-weight: bold;
+        font-size: 50px;
+        margin-bottom: 10px;
+      }
+
+      .form input[type="text"],
+      .form input[type="number"],
+      .form input[type="date"],
+      .form input[type="email"] {
+        width: 90%;
+        padding: 15px;
+        font-size: 24px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        transition: border-color 0.3s ease;
+        border-radius: 10px;
+        margin: 0 auto;
+        background-color: #e9e9e9;
+        color: #333;
+      }
+
+      input[readonly] {
+        background-color: #e9e9e9;
+        cursor: not-allowed;
+      }
+
+      .form input[type="text"]:focus,
+      .form input[type="number"]:focus,
+      .form input[type="date"]:focus,
+      .form input[type="email"]:focus {
+        border-color: #4caf50;
+      }
+
+      .submit-btn {
+        background-color: rgb(2, 95, 2);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 30px;
+        cursor: pointer;
+        margin-top: 40px;
+        width: 40%;
+      }
+
+      .submit-btn:hover {
+        background-color: #2f5c25;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="back">
+      <a href="items.html">&lt; GO BACK</a>
+    </div>
+
+    <h1>CONFIRM SUBMISSION</h1>
+    <div class="background"></div>
+    <div class="form">
+      <form action="End.html" method="POST">
+        <label for="student-id">STUDENT ID</label>
+        <input
+          type="text"
+          id="student-id"
+          name="student-id"
+          value=""
+          readonly
+        />
+
+        <label for="last-name">LAST NAME</label>
+        <input type="text" id="last-name" name="last-name" value="" readonly />
+
+        <label for="first-name">FIRST NAME</label>
+        <input
+          type="text"
+          id="first-name"
+          name="first-name"
+          value=""
+          readonly
+        />
+
+        <label for="email">DLSU-D EMAIL</label>
+        <input type="email" id="email" name="email" value="" readonly />
+
+        <label for="date">DATE</label>
+        <input type="date" id="date" name="date" value="" readonly />
+
+        <label for="items">ITEMS</label>
+        <input type="text" id="items" name="items" value="" readonly />
+
+        <input type="submit" value="CONFIRM" class="submit-btn" />
+
+        <script>
+          document.getElementById("student-id").value =
+            localStorage.getItem("student-id");
+          document.getElementById("last-name").value =
+            localStorage.getItem("last-name");
+          document.getElementById("first-name").value =
+            localStorage.getItem("first-name");
+          document.getElementById("email").value =
+            localStorage.getItem("email");
+          document.getElementById("date").value = localStorage.getItem("date");
+          const cart = JSON.parse(localStorage.getItem("cart"));
+          const items = cart.map((item) => item.title).join(", ");
+          document.getElementById("items").value = items;
+        </script>
+      </form>
+    </div>
+  </body>
+</html>
